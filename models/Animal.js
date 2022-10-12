@@ -15,3 +15,4 @@ const animalSchema = new Schema({
 })
 
 module.exports = mongoose.model("Animal", animalSchema)
+

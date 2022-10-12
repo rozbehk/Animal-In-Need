@@ -5,7 +5,7 @@ import Form from "./components/Form/Form";
 import Animal from "./components/Animal/Animal";
 import { NavrBar } from "./components/NavBar/NavBar";
 import AuthPage from "./pages/AuthPage/AuthPage";
-import Map from "./components/Map/Map";
+import MyMap from "./components/Map/Map";
 
 export default class App extends Component {
   state = {
@@ -44,7 +44,7 @@ export default class App extends Component {
     return (
       <div>
         <NavrBar user={this.state.user} />
-        <Map animals={this.state.animals}/>
+        <MyMap animals={this.state.animals}/>
        {this.state.user ? (
           <main className="App">
             <Form getAnimals={this.getAnimals} user={this.state.user} />

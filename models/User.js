@@ -19,10 +19,6 @@ const userSchema = new Schema({
   type: {
     type: String,
   },
-  location: {
-    type: Object,
-    required: true,
-  }
 }, {
   timestamps: true,
   toJSON: {

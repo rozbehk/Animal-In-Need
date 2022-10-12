@@ -3,11 +3,11 @@ import { Component } from "react";
 export default class Form extends Component {
   state = {
     title: "",
-    countryId: this.props.user.location.countryId,
-    provienceId: this.props.user.location.provienceId,
-    cityId: this.props.user.location.cityId,
     description: "",
     image: "",
+    lng: 0,
+    lat:0,
+    kind: ""
   };
 
   HandleChange = async (evt) => {
@@ -17,15 +17,10 @@ export default class Form extends Component {
   handleSubmit = async () => {
     let body = {
       title: this.state.title,
-      location: {
-        countryId: this.state.countryId,
-        provienceId: this.state.provienceId,
-        cityId: this.state.cityId,
-      },
       description: this.state.description,
       image: this.state.image,
+      location : {lat: this.state.lat, lng: this.state.lng}
     };
-    console.log(body)
     let options = {
       method: "POST",
       headers: {
@@ -42,13 +37,11 @@ export default class Form extends Component {
       
   };
 
-
-
   render() {
     return (
       <div>
         <div>
-          <label for="title">title:</label>
+          <label forhtml="title">title:</label>
           <input
             type="text"
             name="title"
@@ -57,7 +50,16 @@ export default class Form extends Component {
           />
         </div>
         <div>
-          <label for="description">description:</label>
+          <label forhtml="kind">kind:</label>
+          <input
+            type="text"
+            name="kind"
+            onChange={this.HandleChange}
+            value={this.state.kind}
+          />
+        </div>
+        <div>
+          <label forhtml="description">description:</label>
           <input
             type="text"
             name="description"
@@ -66,7 +68,25 @@ export default class Form extends Component {
           />
         </div>
         <div>
-          <label for="image">image:</label>
+          <label forhtml="lat">Lat:</label>
+          <input
+            type="number"
+            name="lat"
+            onChange={this.HandleChange}
+            value={this.state.lat}
+          />
+        </div>
+        <div>
+          <label forhtml="lng">lng:</label>
+          <input
+            type="number"
+            name="lng"
+            onChange={this.HandleChange}
+            value={this.state.lng}
+          />
+        </div>
+        <div>
+          <label forhtml="image">image:</label>
           <input
             type="text"
             name="image"

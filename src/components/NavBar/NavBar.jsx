@@ -1,6 +1,5 @@
 
 export function NavrBar (props){
-    console.log(props)
     function handleSignout(){
         localStorage.removeItem('token')
         

@@ -21,7 +21,6 @@ async function create(req, res) {
       email: req.body.email,
       password: hashedPassword,
       type: req.body.type,
-      location: req.body.location
     });
     const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "48h" });
     res.status(200).json(token);

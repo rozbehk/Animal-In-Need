@@ -24,11 +24,10 @@ export default function Post (props){
     return(
         <div className="animals">
             <p className="animals-title">Title : {props.animal.title}</p>
-            <p className="animals-Country">Country: {props.animal.country}</p>
-            <p className="animals-state">State: {props.animal.state}</p>
-            <p className="animals-city">City: {props.animal.city}</p>
             <p className="animals-description">Description: {props.animal.description}</p>
-            <p className="animals-image">Image: {props.animal.image}</p>
+            <p className="animals-image">lat: {props.animal.location.lat}</p>
+            <p className="animals-lng">lng: {props.animal.location.lng}</p>
+            <p className="animals-lat">Image: {props.animal.location.image}</p>
             <span onClick={handleDelete} >Delete!</span>
             <hr />
         </div>

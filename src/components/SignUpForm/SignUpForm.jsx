@@ -1,9 +1,6 @@
 import { Component } from "react";
 
 export default class SignUpForm extends Component {
-  countryData = require("../../data/tbl_country.json");
-  cityData = require("../../data/tbl_city.json");
-  provienceData = require("../../data/tbl_state.json");
 
   registerOptions = ["user", "rescuer"];
   state = {
@@ -11,9 +8,6 @@ export default class SignUpForm extends Component {
     email: "",
     password: "",
     confirm: "",
-    countryId: "",
-    provienceId: "",
-    cityId: "",
     type: "user",
     error: "",
   };
@@ -100,32 +94,6 @@ export default class SignUpForm extends Component {
                 <option value={registerOption}>{registerOption}</option>
               ))}
             </select>
-            <select name="countryId" onChange={this.handleChange} required>
-              {this.countryData[2].data.map((country) => (
-                <option value={country.country_id}>
-                  {country.country_name}
-                </option>
-              ))}
-            </select>
-            <select name="provienceId" onChange={this.handleChange} required>
-              {this.provienceData[2].data.map((provience) =>
-                this.state.countryId === provience.country_id ? (
-                  <option value={provience.state_id}>
-                    {provience.state_name}
-                  </option>
-                ) : null
-              )}
-            </select>
-            <select name="cityId" onChange={this.handleChange} required>
-              {this.cityData[2].data.map((city) =>
-                this.state.provienceId === city.state_id ? (
-                  <option value={city.city_id}>
-                    {city.city_name}
-                  </option>
-                ) : null
-              )}
-            </select>
-
             <button type="submit" disabled={disable}>
               SIGN UP
             </button>
