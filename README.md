@@ -22,7 +22,7 @@ Animal In Need is a program to save injured animals. Users can record the locati
 
 
 ## Ice Box
-For security, in the next updates, the location of the animals will only be displayed for rescuers, and users can only see the items they have added themselves.
+For security, in the next updates, the location of the animals will only be displayed for rescuers, and users can only see the animal they have added themselves.
 
 
 ## LINKS
