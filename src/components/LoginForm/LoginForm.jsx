@@ -1,6 +1,7 @@
 import { Component } from "react";
+import {useHistory , Link} from 'react-router-dom'
 
-export default class SignUpForm extends Component {
+export default class LoginForm extends Component {
   state = {
     email: "",
     password: "",
@@ -25,18 +26,19 @@ export default class SignUpForm extends Component {
           password: this.state.password
         })
       }
-      const fetchResponse = await fetch("/api/users/login", options)
+      const fetchResponse = await fetch("/users/login", options)
       
       if (!fetchResponse.ok) throw new Error("Fetch Failed - Bad Request")
-
+      console.log(fetchResponse)
       let token = await fetchResponse.json()
       localStorage.setItem('token', token)
 
       const user = JSON.parse(atob(token.split('.')[1])).user
       this.props.setUserInState(user)
+      useHistory('/')
     } catch (err) {
       console.log("SignupForm error", err);
-      this.setState({ error: "Sign Up Failed - Try Again" });
+      this.setState({ err });
     }
   };
 
@@ -45,6 +47,7 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container" onSubmit={this.handleSubmit}>
           <form autoComplete="off">
+            
             <label>Email</label>
             <input
               type="text"
@@ -62,9 +65,11 @@ export default class SignUpForm extends Component {
               required
             />
             <button type="submit">LOG IN</button>
+            <button type="submit" onClick={this.handleSubmit} ><Link to="/" className="navbar-item Navbar-item" >logout</Link></button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
+
       </div>
     );
   }

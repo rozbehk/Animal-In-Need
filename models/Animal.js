@@ -9,7 +9,7 @@ const animalSchema = new Schema({
       },
     description : {type:String},
     image: {type:String},
-
+    userId: {type:String}
 },{
     timestamps: true,
 })

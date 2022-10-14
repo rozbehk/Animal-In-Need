@@ -1,11 +1,10 @@
 
-export default function Post (props){
+export default function Animal (props){
 
     async function handleDelete(){
         let body = { 
-            id : this.state.id,
+            id : props.animal._id,
         }
-        console.log(body)
         let options = {
             method: "DELETE",
             headers: {
@@ -13,12 +12,13 @@ export default function Post (props){
             },
             body: JSON.stringify(body)
         }
-        await fetch(`/api/delete/{this.state.id}`, options)
+        await fetch(`/api`, options)
             .then(res=> res.json())
             .then(data => {
                 this.props.getAnimals()
             })
     }
+    
 
 
     return(

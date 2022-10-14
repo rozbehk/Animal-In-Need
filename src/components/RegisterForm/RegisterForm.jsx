@@ -23,7 +23,6 @@ export default class SignUpForm extends Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      // 1. POST our new user to our server
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,10 +31,9 @@ export default class SignUpForm extends Component {
           email: this.state.email,
           password: this.state.password,
           type: this.state.type,
-          location: {countryId: this.state.countryId , provienceId : this.state.provienceId , cityId: this.state.cityId}
-        }),
+      }),
       };
-      const fetchResponse = await fetch("/api/users/signup", options);
+      const fetchResponse = await fetch("/users/signup", options);
       console.log(fetchResponse);
       if (!fetchResponse.ok) throw new Error("Fetch failed - Bad request");
 
@@ -56,6 +54,7 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
+            <div>
             <label>Name</label>
             <input
               type="text"
@@ -64,6 +63,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            </div>
+            <div>
             <label>Email</label>
             <input
               type="email"
@@ -72,6 +73,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            </div>
+            <div>
             <label>Password</label>
             <input
               type="password"
@@ -80,6 +83,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            </div>
+            <div>
             <label>Confirm</label>
             <input
               type="password"
@@ -88,12 +93,15 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            </div>
+            <div>
             <label>Register As: </label>
             <select name="type" onChange={this.handleChange} >
               {this.registerOptions.map((registerOption) => (
                 <option value={registerOption}>{registerOption}</option>
               ))}
             </select>
+            </div>
             <button type="submit" disabled={disable}>
               SIGN UP
             </button>
