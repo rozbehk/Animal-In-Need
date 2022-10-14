@@ -1,4 +1,4 @@
-import { Component, push } from "react";
+import { Component} from "react";
 import { Link } from "react-router-dom";
 import { isAuthenticated, logout, getUsername } from "../../utilities/auth";
 import "./NavBar.css";
@@ -24,7 +24,6 @@ export default class NavBar extends Component {
     } catch (err) {
       res.status(400).json(err);
     }
-    push("/");
   };
   getUserId = () => {
     return;

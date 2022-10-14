@@ -27,7 +27,6 @@ export default class MapMarker extends Component{
                         <p>Description: {animal.description}</p>
                         <p>Location {animal.location.lat},{animal.location.lng}</p>
                         <button type="submit" onClick={this.handleSubmit} ><Link to="/" className="navbar-item Navbar-item" >Details</Link></button>
-
                     </Popup>
                 </Marker>
                 ))}
