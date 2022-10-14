@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+## Overview
+Animal In Need is a program to save injured animals. Users can record the location of animals on the map so the rescuers can save them
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Scren Shots
+![image](https://user-images.githubusercontent.com/109234009/195860184-25184421-9396-4d8d-8988-ae504d881984.png)
+![image](https://user-images.githubusercontent.com/109234009/195860994-0b0cff6e-39ca-4cc7-b360-463f57999e73.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Technologies used
+* Express.js
+* Node.js
+* React.js
+* Mongo
+* Mongoose
+* JavaScript
+* Bootstrap
+* Bcrypt
+* JSON Web Tokens
+* Git
+* GitHub
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Ice Box
+For security, in the next updates, the location of the animals will only be displayed for rescuers, and users can only see the items they have added themselves.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## LINKS
 
-### `npm run build`
+- [Trello Board](https://trello.com/b/8kpEFIEH/animal-in-need)
+- [Demo Link](https://animal-in-need.herokuapp.com/)
+- [linkedin](https://www.linkedin.com/in/roozbeh-karimi-71697863/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

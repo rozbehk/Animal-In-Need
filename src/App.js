@@ -24,6 +24,7 @@ export default function App (){
             <Route path='/rescuer/:username' component={RescuerProfile} />
             <Route path='/addrequest' component={AddRequest} />
             <Route path='/animals' component={ShowUserAnimals} />
+            <Route path='/detail' component={ShowUserAnimals} />
           </Switch>
         </div>
       </BrowserRouter>

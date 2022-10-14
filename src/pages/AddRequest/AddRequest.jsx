@@ -1,6 +1,6 @@
 import { Component, useEffect, useRef, mapRef } from "react";
 import { Navigate } from "react-router";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import RequestMap from "../../components/RequestMap/RequestMap";
 import RequestForm from "../../components/RequestForm/RequestFrom";
@@ -12,7 +12,6 @@ import {
   Marker,
   Popup,
   useMap,
-  
 } from "react-leaflet";
 import "./AddRequest.css";
 
@@ -36,7 +35,7 @@ export default class AddRequest extends Component {
     lat: "",
     lng: "",
     image: "",
-    userId: ""
+    userId: "",
   };
   handleChange = async (evt) => {
     this.setState({
@@ -61,24 +60,26 @@ export default class AddRequest extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-      
     };
     await fetch("/addrequest", options)
       .then((res) => res.json())
       .then((data) => {
-        this.setState({ title: "",
-        kind: "",
-        description: "",
-        lat: "",
-        lng: "",
-        image: "",});
+        this.setState({
+          title: "",
+          kind: "",
+          description: "",
+          lat: "",
+          lng: "",
+          image: "",
+        });
       });
-      
   };
-  componentDidMount(){
-    this.state.userId = JSON.parse(atob(localStorage.getItem('token').split('.')[1])).user._id
+  componentDidMount() {
+    this.state.userId = JSON.parse(
+      atob(localStorage.getItem("token").split(".")[1])
+    ).user._id;
   }
-  
+
   render() {
     return (
       <div className="request-wrapper">
@@ -105,8 +106,8 @@ export default class AddRequest extends Component {
             {/* <Marker position={[mapCenter.lat, mapCenter.lng]} /> */}
           </MapContainer>
         </div>
-        <div>
-          <div>
+        {/* <div> */}
+        {/* <div>
             <div>
               <div>
                 <label forhtml="title">title:</label>
@@ -152,7 +153,72 @@ export default class AddRequest extends Component {
               <button onClick={this.handleSubmit}>Submit</button>
             </div>
           </div>
-        </div>
+        </div> */}
+        <section class="vh-300">
+          <div class="container py-5 h-200">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+              <div class=" offset-xl-1">
+                <form>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form1Example13">
+                      Title
+                    </label>
+                    <input
+                      type="text"
+                      name="title"
+                      onChange={this.handleChange}
+                      value={this.state.title}
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form1Example13">
+                      Description
+                    </label>
+                    <input
+                      type="text"
+                      name="kind"
+                      onChange={this.handleChange}
+                      value={this.state.kind}
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form1Example13">
+                      kind
+                    </label>
+                    <input
+                      type="text"
+                      name="email"
+                      value={this.state.email}
+                      onChange={this.handleChange}
+                      required
+                      id="form1Example13"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="form1Example13">
+                      Image
+                    </label>
+                    <input
+                      type="text"
+                      name="image"
+                      onChange={this.handleChange}
+                      value={this.state.image}
+                      id="form1Example13"
+                      class="form-control form-control-lg"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={this.handleSubmit}
+                    class="btn btn-primary btn-lg btn-block"
+                  >
+                    <Link to="/animals" className="btn btn-primary btn-lg btn-block">
+                      Submit
+                    </Link>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }

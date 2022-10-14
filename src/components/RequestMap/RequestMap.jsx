@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MapMarker from '../MapMarker/MapMarker'
 import {
   MapContainer,
   TileLayer,

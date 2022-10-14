@@ -1,4 +1,4 @@
-import { Component} from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import { isAuthenticated, logout, getUsername } from "../../utilities/auth";
 import "./NavBar.css";
@@ -50,35 +50,37 @@ export default class NavBar extends Component {
 
     return (
       <div>
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
           <div class="container-fluid">
-            <div className="navbar-brand"></div>
-            <div className="navbar-end"></div>
-          </div>
-        </nav>
-        <nav class="navbar navbar-expand-lg bg-light">
-          <div class="container-fluid">
-          <Link to="/" className="nav-link active">
-                    Home
-                  </Link>
+            <img
+              className="logo"
+              src="https://i.imgur.com/uozApno.png"
+              alt=""
+            />
             <button
               class="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#navbarText"
-              aria-controls="navbarText"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                 <li class="nav-item">
-                  {isAuthenticated() && (
-                    <Link to={`/addrequest`} className="nav-link active">
-                      AddRequest
-                    </Link>
+
+            <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto ">
+                <li class="nav-item">
+                  <Link to="/" className="nav-link active">
+                    Home
+                  </Link>
+                </li>
+                <li class="nav-item">
+                {isAuthenticated() && (
+                  <Link to={`/addrequest`} className="nav-link">
+                    AddRequest
+                  </Link>
                   )}
                 </li>
                 <li class="nav-item">
@@ -88,43 +90,38 @@ export default class NavBar extends Component {
                     </Link>
                   )}
                 </li>
-                <li class="nav-item">
-                  {isAuthenticated() && (
-                    <Link
-                      to={`/profile/${this.username}/map`}
-                      className="nav-link"
-                    >
-                      User Map
-                    </Link>
-                  )}
-                </li>
-              </ul>
-              <span class="navbar-text">
+                <li>
                 {!isAuthenticated() && (
-                  <Link to="/register" className="navbar-item Navbar-item">
+                  <Link to="/register" className="nav-link">
                     Register
                   </Link>
                 )}
+                </li>
+
+                <li>
                 {!isAuthenticated() && (
                   <Link
                     to="/Login"
-                    setUserInState={this.setUserInState}
-                    className="navbar-item Navbar-item"
+                    className="nav-link"
                   >
                     Login
                   </Link>
                 )}
+                </li>
+                <li >
                 {isAuthenticated() && (
                   <span
                     onClick={this.handleLogout}
                     className="navbar-item Navbar-item"
                   >
-                    <Link to="/" className="navbar-item Navbar-item">
+                    <Link className="nav-link" to="/" >
                       logout
                     </Link>
                   </span>
                 )}
-              </span>
+                </li>
+                
+              </ul>
             </div>
           </div>
         </nav>

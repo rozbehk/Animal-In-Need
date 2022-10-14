@@ -1,24 +1,8 @@
-/* .Navbar {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    background-color: rgba(var(--navbar-color-rgb), 0.3);
-    margin: 0 10px 0 10px;
+.logo{
+    height: 100%;
+    width :400px; 
+    margin-top: -7px;
 }
-.Navbar-item {
-    color: inherit;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: "Playfair Display", serif;
-    text-transform: uppercase;
+.nav-link{
+    font-size: 20px;
 }
-
-.navbar-item {
-    margin: 0 0 0 10px;
-    background-color: rgba(var(--navbar-color-rgb), 0.3);
-}
-.navbar-item:hover{
-
-      background-color: var(--navbar-color);
-      color: var(--navbar-hover-color);
-} */

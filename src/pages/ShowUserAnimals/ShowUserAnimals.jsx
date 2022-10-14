@@ -46,7 +46,6 @@ export default class ShowUserAnimals extends Component {
 
             <MapMarker animals={this.state.animals} getAnimals={this.getAnimals} />
           </MapContainer>
-
         </div>
       </div>
     );
