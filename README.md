@@ -1,7 +1,7 @@
 ## Overview
 Animal In Need is a program to save injured animals. Users can record the location of animals on the map so the rescuers can save them
 
-## Scren Shots
+## Screen Shots
 ![image](https://user-images.githubusercontent.com/109234009/195860184-25184421-9396-4d8d-8988-ae504d881984.png)
 ![image](https://user-images.githubusercontent.com/109234009/195860994-0b0cff6e-39ca-4cc7-b360-463f57999e73.png)
 
