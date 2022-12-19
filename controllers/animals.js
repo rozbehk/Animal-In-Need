@@ -1,48 +1,83 @@
-const Animal = require("../models/Animal");
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/img/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
-
+const Animal = require("../models/animal");
+const User = require('../models/user')
 module.exports = {
-  index,
+  getAll,
+  getOne,
   create,
   delete: deleteOne,
-  update,
+  userGetAll,
+  update
 };
 
-async function index(req, res) {
-  // Animal.find({}, function(err,animals){
-  //     if(err){
-  //         res.status(500).json(err)
 
-  //     }
-  //     res.json(animals).status(200)
-  // }).sort({createdAt: -1})
-  let animals = await Animal.find({});
+async function getAll(req, res) {
+  let animals = await Animal.find({}).populate({ path: 'userId' })
   res.json(animals);
 }
 
+async function getOne(req, res) {
+  console.log(req.params.id)
+  let animal = await Animal.findById(req.params.id).populate({ path: 'userId' })
+  res.json(animal);
+}
+
+async function userGetAll(req, res) {
+  try {
+    let userRequests = await User.findById(req.params.userId).populate({ path: "requests" })
+    res.status(200).json(userRequests);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 async function create(req, res) {
-  req.body.image = await Animal.create(req.body).then(
-    res.status(200).json("ok")
-  );
+  try {
+    let animal = await Animal.create({
+      title: req.body.title,
+      location: { lat: req.body.lat, lng: req.body.lng },
+      kind: req.body.kind,
+      description: req.body.description,
+      image: `/images/upload/${req.file.filename}`,
+      userId: req.body.userId
+    });
+    let user = await User.findById(req.body.userId)
+    user.requests.push(animal._id);
+    user.save();
+    res.status(200).json(animal);
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
+  }
 }
 
 async function deleteOne(req, res) {
-  await Animal.findByIdAndDelete(req.body.id, function (err, serie) {
-    res.status(200).json("animal deleted");
-  });
+  try {
+    let animal = await Animal.findByIdAndDelete(req.params.animalId)
+    console.log(animal)
+    let user = await User.findById(animal.userId)
+    user.requests.remove(req.params.animalId)
+    console.log(user.requests)
+    user.save()
+    res.status(200).json('deleted')
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err)
+  }
 }
 
+
 async function update(req, res) {
-  console.log("done");
+  try {
+  let animal = await Animal.findById(req.body.id)
+  console.log(animal)
+  animal.title = req.body.title
+  animal.location = { lat: req.body.lat, lng: req.body.lng }
+  animal.kind = req.body.kind
+  animal.description = req.body.description
+  animal.save()
+    res.status(200).json(animal);
+  } catch (err) {
+    console.log(err)
+    res.status(400).json(err);
+  }
 }

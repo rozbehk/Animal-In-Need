@@ -16,9 +16,9 @@ app.use(express.json())
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
-app.use('/animals', require('./routes/animals'))
-app.use('/addrequest', require('./routes/animals') )
-app.use('/users', require('./routes/users'))
+app.use('/api/animals', require('./routes/api/animals'));
+app.use('/api/users', require('./routes/api/users'));
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });

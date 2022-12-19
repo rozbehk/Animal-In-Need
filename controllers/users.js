@@ -1,55 +1,87 @@
-const User = require("../models/User");
+const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
-console.log("hit control");
 
 module.exports = {
   create,
   login,
-  logout,
+  getAll,
+  getOne,
+  update
 };
 
 async function create(req, res) {
-  console.log('create')
+  let message = null
+
   try {
+    if(await User.findOne({ email: req.body.email })){
+      message = 'Email Addres Already Taken'
+      throw new Error ()
+    }
     const hashedPassword = await bcrypt.hash(
       req.body.password,
       parseInt(process.env.SALT_ROUNDS)
     );
-    console.log(req.body)
     const user = await User.create({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
-      type: req.body.type,
+      rescuer: req.body.rescuer,
+      admin: false
     });
-    const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "48h" });
+    const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
     res.status(200).json(token);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json(message);
   }
 }
 
 async function login(req, res) {
+  message = 'bad request'
+
   try {
     const user = await User.findOne({ email: req.body.email });
-    if (!(await bcrypt.compare(req.body.password, user.password)))
-      throw new Error("Bad Password");
-    const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "48h" });
-    console.log(token)
+    if(!(await User.findOne({ email: req.body.email }))){
+      message = 'Email not exist'
+      throw new Error()
+    } 
+    if (await User.findOne({ email: req.body.email }) && !(await bcrypt.compare(req.body.password, user.password))){
+      message = 'Bad Password'
+      throw new Error()
+    } 
+    const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
     res.status(200).json(token);
-  } catch (err) {
-    res.status(400).json(err);
+  } catch(err) {
+    res.status(400).json(message);
   }
 }
 
-async function logout(req, res) {
+async function getAll(req, res) {
+  let users = await User.find({});
+  res.json(users);
+}
+
+async function getOne(req, res){
+  let user = await User.findById(req.params.id)
+  res.json(user)
+}
+
+async function update(req, res){
   try {
-    localStorage.removeItem('token')
-    res.json(200)
-  } catch (err) {
+    const user = await User.findOne({ email: req.body.email });
+    const hashedPassword = await bcrypt.hash(
+      req.body.password,
+      parseInt(process.env.SALT_ROUNDS)
+    );
+    user.name = req.body.name
+    user.password = hashedPassword
+    const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
+    user.save()
+    res.status(200).json(token);
+  }catch(err){
     res.status(400).json(err);
   }
-}
+  
 
+
+}
