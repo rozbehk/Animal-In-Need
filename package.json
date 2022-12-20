@@ -1,12 +1,9 @@
 {
   "name": "animal-in-need-3",
   "version": "0.1.0",
-<<<<<<< HEAD
   "engines": {
     "node": "18.x"
   },
-=======
->>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -14,10 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
     "bcrypt": "^5.1.0",
-<<<<<<< HEAD
     "dotenv": "^16.0.3",
-=======
->>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
     "git": "^0.1.5",
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.9.2",
