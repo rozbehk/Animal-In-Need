@@ -52,18 +52,19 @@ export default class UserUpdateRequest extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        const formData = new FormData()
-        formData.append('id', this.state.animal._id)
-        formData.append("title", this.state.animal.title)
-        formData.append("kind", this.state.animal.kind)
-        formData.append("description", this.state.animal.description)
-        formData.append("image", this.state.image)
-        formData.append("lat", this.state.animal.location.lat)
-        formData.append("lng", this.state.animal.location.lng)
-        console.log(formData)
-        let response = await axios.put("/api/animals/updaterequest", formData)
-        let url = `/request/${response.data._id}`
-        this.setState({ animal: response.data, result: response.status, url: url })
+        alert("Update disabled to protect the database");
+        // const formData = new FormData()
+        // formData.append('id', this.state.animal._id)
+        // formData.append("title", this.state.animal.title)
+        // formData.append("kind", this.state.animal.kind)
+        // formData.append("description", this.state.animal.description)
+        // formData.append("image", this.state.image)
+        // formData.append("lat", this.state.animal.location.lat)
+        // formData.append("lng", this.state.animal.location.lng)
+        // console.log(formData)
+        // let response = await axios.put("/api/animals/updaterequest", formData)
+        // let url = `/request/${response.data._id}`
+        // this.setState({ animal: response.data, result: response.status, url: url })
     }
 
     componentDidMount() {
@@ -149,9 +150,7 @@ export default class UserUpdateRequest extends Component {
                                                 <button
                                                     className="btn btn-primary"
                                                 >
-                                                    {/* <Link to="/user/showrequest" className="btn btn-primary btn-lg btn-block"> */}
                                                     Submit
-                                                    {/* </Link> */}
                                                 </button>
                                             </div>
                                         </form>

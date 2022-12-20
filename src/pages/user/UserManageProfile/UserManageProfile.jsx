@@ -19,34 +19,35 @@ export default class UserManageProfile extends Component {
 
     handleSubmit = async (evt) => {
         evt.preventDefault();
-        let message = ''
-        if (this.state.password != this.state.confirm) {
-            this.setState({ error: "passwords do not match" })
-            return
-        }
-        try {
-            const options = {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: this.state.name,
-                    email: this.state.email,
-                    password: this.state.password,
-                }),
-            };
-            const fetchResponse = await fetch("/api/users/update", options);
-            let responseMessage = await fetchResponse.json();
-            if (!fetchResponse.ok) {
-                this.setState({ error: responseMessage });
-                throw new Error(responseMessage);
-            }
-            localStorage.setItem("token", responseMessage);
-            let user = JSON.parse(atob(responseMessage.split(".")[1])).user;
-            this.setState({ result: 200 })
+        alert("disabled to protect the database");
+        // let message = ''
+        // if (this.state.password != this.state.confirm) {
+        //     this.setState({ error: "passwords do not match" })
+        //     return
+        // }
+        // try {
+        //     const options = {
+        //         method: "PUT",
+        //         headers: { "Content-Type": "application/json" },
+        //         body: JSON.stringify({
+        //             name: this.state.name,
+        //             email: this.state.email,
+        //             password: this.state.password,
+        //         }),
+        //     };
+        //     const fetchResponse = await fetch("/api/users/update", options);
+        //     let responseMessage = await fetchResponse.json();
+        //     if (!fetchResponse.ok) {
+        //         this.setState({ error: responseMessage });
+        //         throw new Error(responseMessage);
+        //     }
+        //     localStorage.setItem("token", responseMessage);
+        //     let user = JSON.parse(atob(responseMessage.split(".")[1])).user;
+        //     this.setState({ result: 200 })
 
-        } catch (err) {
-            this.setState({ error: err.message });
-        }
+        // } catch (err) {
+        //     this.setState({ error: err.message });
+        // }
     };
 
     componentDidMount() {

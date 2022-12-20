@@ -6,11 +6,12 @@ export default function AnimalRow(props) {
   function handleDelete(evt) {
     try {
       evt.preventDefault()
-      const token = localStorage.getItem("token");
-      if (!token) return null;
-      const userId = JSON.parse(atob(token.split(".")[1])).user._id
-      axios.delete(`/api/animals/delete/${props.animal._id}`)
-      props.getAnimals()
+      alert("disabled to protect the database");
+      // const token = localStorage.getItem("token");
+      // if (!token) return null;
+      // const userId = JSON.parse(atob(token.split(".")[1])).user._id
+      // axios.delete(`/api/animals/delete/${props.animal._id}`)
+      // props.getAnimals()
     } catch (err) {
       console.log(err)
     }

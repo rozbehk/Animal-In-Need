@@ -1,17 +1,20 @@
+import axios from "axios";
 import { Component } from "react";
 import AnimalRow from "../../../components/AnimalRow/AnimalRow";
 // import AdminAnimalRow from "../../components/AdminAnimalRow/AdminAnimalRow";
 
 export default class UserManageRequests extends Component {
   state = {
-    animals: [],
+    animals: null,
     userName: ''
   };
   getAnimals = async () => {
     const token = localStorage.getItem("token");
     if (!token) return null;
     const userId = JSON.parse(atob(token.split(".")[1])).user._id
-    await fetch(`/api/animals/usergetall/${userId}`).then(res => res.json()).then(res => this.setState({ animals: res.requests, userName: res.name }))
+
+    let userRequests = await fetch(`/api/animals/usergetall/${userId}`).then(res => res.json()).then(res => this.setState({ animals: res.requests, userName: res.name }))
+    // this.setState({animals: userRequests.data.requests})
   };
 
   componentDidMount() {
@@ -21,19 +24,22 @@ export default class UserManageRequests extends Component {
   render() {
     return (
       <div>
-        <section className="py-4 py-xl-5">
-          {!this.state.animals && (
-            <div className="container mb-2">
-              <div className="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
-                <h1 className="fw-bold mb-2">You have no request</h1>
+        {this.state.animals &&
+          <section class="py-4 py-xl-5">
+            {this.state.animals.length ? (
+              this.state.animals.map(animal =>
+            <AnimalRow animal={animal} getAnimals={this.getAnimals} />
+            )
+            ):(
+            <div class="container mb-2">
+              <div class="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                <h1 class="fw-bold mb-2 animal-card">You have no request</h1>
               </div>
             </div>
-          )}
-          {this.state.animals && (
-            this.state.animals.map(animal =>
-              <AnimalRow animal={animal} getAnimals={this.getAnimals} />
-            ))}
-        </section>
+           )}
+        
+            </section>
+        }
       </div >
     );
   }

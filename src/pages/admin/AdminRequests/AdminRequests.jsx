@@ -18,9 +18,9 @@ export default class AdminRequest extends Component {
   render() {
     return (
       <div>
-        {this.state.animals && 
+        {this.state.animals &&
         <section className="py-4 py-xl-5">
-        {this.state.animals? (
+        {this.state.animals.length? (
             this.state.animals.map(animal =>
               <AnimalRow animal={animal} getAnimals={this.getAnimals} key={animal._id}/>
             )

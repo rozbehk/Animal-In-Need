@@ -37,10 +37,10 @@ render(){
               <img className='w-100' src={
                 this.state.animal.image ? `${this.state.animal.image}` : "/images/image-not-found.png"
               } />
-              <h3 >{this.state.animal.description}</h3>
+              <h3 >{this.state.animal.title}</h3>
               <br />
               <h4></h4>
-              <h4>Description:{this.state.animal.description}</h4>
+              <h4>Description: {this.state.animal.description}</h4>
               <br />
               <h4>Kind: {this.state.animal.kind}</h4>
               <br />
