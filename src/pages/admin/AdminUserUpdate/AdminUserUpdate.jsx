@@ -78,10 +78,10 @@ export default class UserUpdate extends Component {
                         <div className="container py-5 h-100">
                             <div className="row d-flex align-items-center justify-content-center h-100">
                                 <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                                    <form class="text-center" method="post" onSubmit={this.handleSubmit}>
-                                        <div class="mb-3">
+                                    <form className="text-center" method="post" onSubmit={this.handleSubmit}>
+                                        <div className="mb-3">
                                             <input
-                                                class="form-control"
+                                                className="form-control"
                                                 type="text"
                                                 name="name"
                                                 required
@@ -89,9 +89,9 @@ export default class UserUpdate extends Component {
                                                 onChange={this.handleChange}
                                             />
                                         </div>
-                                        <div class="mb-3">
+                                        <div className="mb-3">
                                             <input
-                                                class="form-control"
+                                                className="form-control"
                                                 type="email"
                                                 name="email"
                                                 value={this.state.user.email}
@@ -100,9 +100,9 @@ export default class UserUpdate extends Component {
                                                 onChange={this.handleChange}
                                             />
                                         </div>
-                                        <div class="mb-3">
+                                        <div className="mb-3">
                                             <input
-                                                class="form-control"
+                                                className="form-control"
                                                 type="password"
                                                 name="password"
                                                 placeholder="Password"
@@ -110,9 +110,9 @@ export default class UserUpdate extends Component {
                                                 onChange={this.handleChange}
                                             />
                                         </div>
-                                        <div class="mb-3">
+                                        <div className="mb-3">
                                             <input
-                                                class="form-control"
+                                                className="form-control"
                                                 type="password"
                                                 name="confirm"
                                                 placeholder="Verify Password"
@@ -120,7 +120,7 @@ export default class UserUpdate extends Component {
                                                 onChange={this.handleChange}
                                             />
                                         </div>
-                                        <div class="mb-3">
+                                        <div className="mb-3">
                                             <span>Is Rescuer  :</span>  
                                             <input
                                                 type="checkbox"
@@ -131,8 +131,8 @@ export default class UserUpdate extends Component {
                                         </div>
                                      
                                         {this.state.error && <div>{this.state.error}</div>}
-                                        <div class="mb-3">
-                                            <button class="btn btn-primary d-block w-100" type="submit">
+                                        <div className="mb-3">
+                                            <button className="btn btn-primary d-block w-100" type="submit">
                                                 Update Profile
                                             </button>
                                         </div>

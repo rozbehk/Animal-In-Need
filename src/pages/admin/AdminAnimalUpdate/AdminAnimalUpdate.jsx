@@ -65,39 +65,39 @@ export default class AddRequestPage extends Component {
         {this.state.result === 200 && (
           <Navigate to={this.state.url} state={{ animal: this.state.animal }} />
         )}
-        <section class="position-relative py-4 py-xl-5">
-          <div class="container position-relative">
-            <div class="row">
-              <div class="col">
+        <section className="position-relative py-4 py-xl-5">
+          <div className="container position-relative">
+            <div className="row">
+              <div className="col">
                 <Map
                   mapCenter={this.state.mapCenter}
                   setStateMapCenter={this.setStateMapCenter}
                 />
               </div>
-              <div class="col-md-6 col-xl-4">
+              <div className="col-md-6 col-xl-4">
                 <div>
-                  <form class="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+                  <form className="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
                     <h4>Add Request</h4>
-                    <div class="mb-3">
-                      <label class="form-label" for="title">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="title">
                         Title
                       </label>
                       <input
                         id="title"
-                        class="form-control"
+                        className="form-control"
                         type="text"
                         name="title"
                         value={this.state.title}
                         onChange={this.handleChange}
                       />
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="description">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="description">
                         Description
                       </label>
                       <textarea
                         id="email"
-                        class="form-control"
+                        className="form-control"
                         type="text"
                         name="description"
                         value={this.state.description}
@@ -105,14 +105,14 @@ export default class AddRequestPage extends Component {
                         rows="6"
                       />
                     </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="description">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="description">
                         kind
                       </label>
                       <select
                         name="kind"
                         id="kind"
-                        class="form-control"
+                        className="form-control"
                         onChange={this.handleChange}
                         value={this.state.type}
                       >
@@ -124,13 +124,13 @@ export default class AddRequestPage extends Component {
                       </select>
                     </div>
 
-                    <div class="mb-3">
-                      <label class="form-label" for="image">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="image">
                         Image
                       </label>
                       <input
                         id="message"
-                        class="form-control"
+                        className="form-control"
                         name="image"
                         type="file"
                         onChange={this.handleImage}
@@ -143,9 +143,9 @@ export default class AddRequestPage extends Component {
                         />
                       )}
                     </div>
-                    <div class="mb-3">
+                    <div className="mb-3">
                       <button
-                        class="btn btn-primary"
+                        className="btn btn-primary"
                       >
                         {/* <Link to="/user/showrequest" className="btn btn-primary btn-lg btn-block"> */}
                         Submit

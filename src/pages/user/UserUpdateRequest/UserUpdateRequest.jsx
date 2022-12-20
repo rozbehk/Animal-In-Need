@@ -78,47 +78,47 @@ export default class UserUpdateRequest extends Component {
                     <Navigate to={this.state.url} state={{ animal: this.state.animal }} />
                 )}
                 {this.state.animal && (
-                    <section class="position-relative py-4 py-xl-5">
-                        <div class="container position-relative">
-                            <div class="row">
-                                <div class="col">
+                    <section className="position-relative py-4 py-xl-5">
+                        <div className="container position-relative">
+                            <div className="row">
+                                <div className="col">
                                     <Map
                                         mapCenter={this.state.animal.location}
                                         setStateMapCenter={this.setStateMapCenter}
                                     />
                                 </div>
-                                <div class="col-md-6 col-xl-4">
+                                <div className="col-md-6 col-xl-4">
                                     <div>
-                                        <form class="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+                                        <form className="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
                                             <h4>Manage Request</h4>
                                             <img
                                                 alt='animal-card-image'
-                                                class="card-img-top w-100 d-block fit-cover"
+                                                className="card-img-top w-100 d-block fit-cover"
                                                 style={{ height: 200 + "px" }}
                                                 src={
-                                                    this.state.animal.image ? `this.state.animal.image` : "/images/image-not-found.png"
+                                                    this.state.animal.image ? `${this.state.animal.image}` : "/images/image-not-found.png"
                                                 }
                                             />
-                                            <div class="mb-3">
-                                                <label class="form-label" for="title">
+                                            <div className="mb-3">
+                                                <label className="form-label" htmlFor="title">
                                                     Title
                                                 </label>
                                                 <input
                                                     id="title"
-                                                    class="form-control"
+                                                    className="form-control"
                                                     type="text"
                                                     name="title"
                                                     value={this.state.animal.title}
                                                     onChange={this.handleChange}
                                                 />
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label" for="description">
+                                            <div className="mb-3">
+                                                <label className="form-label" htmlFor="description">
                                                     Description
                                                 </label>
                                                 <textarea
                                                     id="email"
-                                                    class="form-control"
+                                                    className="form-control"
                                                     type="text"
                                                     name="description"
                                                     value={this.state.animal.description}
@@ -126,14 +126,14 @@ export default class UserUpdateRequest extends Component {
                                                     rows="6"
                                                 />
                                             </div>
-                                            <div class="mb-3">
-                                                <label class="form-label" for="description">
+                                            <div className="mb-3">
+                                                <label className="form-label" htmlFor="description">
                                                     kind
                                                 </label>
                                                 <select
                                                     name="kind"
                                                     id="kind"
-                                                    class="form-control"
+                                                    className="form-control"
                                                     onChange={this.handleChange}
                                                     value={this.state.animal.type}
                                                 >
@@ -145,9 +145,9 @@ export default class UserUpdateRequest extends Component {
                                                 </select>
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div className="mb-3">
                                                 <button
-                                                    class="btn btn-primary"
+                                                    className="btn btn-primary"
                                                 >
                                                     {/* <Link to="/user/showrequest" className="btn btn-primary btn-lg btn-block"> */}
                                                     Submit

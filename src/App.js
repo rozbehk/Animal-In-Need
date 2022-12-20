@@ -9,10 +9,10 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/user/LoginPage/LoginPage";
 import RegisterPage from "./pages/user/RegisterPage/RegisterPage";
 import ShowRequestPage from "./pages/user/ShowRequestsPage/ShowRequestPage";
-import AdminPanel from "./pages/admin/AdminPanel";
-import AdminAnimalsType from "./pages/admin/AdminAnimalType";
-import AdminUsers from "./pages/admin/AdminUser";
-import AdminRequest from "./pages/admin/AdminRequests";
+import AdminPanel from "./pages/admin/AdminPanel/AdminPanel";
+import AdminAnimalsType from "./pages/admin/AdminAnimalType/AdminAnimalType";
+import AdminUsers from "./pages/admin/AdminUser/AdminUser";
+import AdminRequest from "./pages/admin/AdminRequests/AdminRequests";
 import UserPanel from "./pages/user/UserPanel/UserPanel";
 import UserManageRequests from "./pages/user/UserManageRequests/UserManageRequests"
 import ShowSingleRequest from "./pages/user/ShowSingleRequestPage/ShowSingleRequestPage";

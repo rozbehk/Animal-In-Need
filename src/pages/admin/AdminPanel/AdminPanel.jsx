@@ -1,5 +1,5 @@
 import { Component } from "react";
-import AdminCards from "../../components/AdminCards/AdminCards";
+import AdminCards from "../../../components/AdminCards/AdminCards";
 export default class AdminPanel extends Component {
   state = {
     users: [],

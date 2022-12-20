@@ -1,5 +1,5 @@
 import { Component } from "react";
-import AdminUserRow from "../../components/AdminUserRow/AdminUserRow";
+import AdminUserRow from "../../../components/AdminUserRow/AdminUserRow";
 
 export default class AdminUsers extends Component {
   state = {
@@ -16,7 +16,7 @@ export default class AdminUsers extends Component {
   render() {
     return (
       <div>
-        <section class="py-4 py-xl-5">
+        <section className="py-4 py-xl-5">
           {!this.state.users && <div>No User Found</div>}
           {this.state.users && 
             this.state.users.map((user) => (

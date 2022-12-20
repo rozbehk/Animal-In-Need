@@ -8,13 +8,12 @@ export default class NavBar extends Component {
     user: {},
   };
 
-  handleLogout(res) {
+  handleLogout() {
     try {
       this.props.setUserInState("");
       localStorage.removeItem("token");
-      res.json(200);
     } catch (err) {
-      res.status(400).json(err);
+      console.log(err)
     }
   }
 
