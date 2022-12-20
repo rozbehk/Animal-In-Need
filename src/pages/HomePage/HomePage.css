@@ -1,0 +1,12 @@
+
+.Home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    /* min-height: 70vh; */
+}
+
+  
