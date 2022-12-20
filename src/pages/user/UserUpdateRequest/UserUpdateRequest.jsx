@@ -62,8 +62,8 @@ export default class UserUpdateRequest extends Component {
         formData.append("lng", this.state.animal.location.lng)
         console.log(formData)
         let response = await axios.put("/api/animals/updaterequest", formData)
-        // let url = `/request/${response.data._id}`
-        // this.setState({ animal: response.data, result: response.status, url: url })
+        let url = `/request/${response.data._id}`
+        this.setState({ animal: response.data, result: response.status, url: url })
     }
 
     componentDidMount() {
