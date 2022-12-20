@@ -52,6 +52,7 @@ export default class UserUpdateRequest extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
+<<<<<<< HEAD
         alert("Update disabled to protect the database");
         // const formData = new FormData()
         // formData.append('id', this.state.animal._id)
@@ -63,6 +64,18 @@ export default class UserUpdateRequest extends Component {
         // formData.append("lng", this.state.animal.location.lng)
         // console.log(formData)
         // let response = await axios.put("/api/animals/updaterequest", formData)
+=======
+        const formData = new FormData()
+        formData.append('id', this.state.animal._id)
+        formData.append("title", this.state.animal.title)
+        formData.append("kind", this.state.animal.kind)
+        formData.append("description", this.state.animal.description)
+        formData.append("image", this.state.image)
+        formData.append("lat", this.state.animal.location.lat)
+        formData.append("lng", this.state.animal.location.lng)
+        console.log(formData)
+        let response = await axios.put("/api/animals/updaterequest", formData)
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
         // let url = `/request/${response.data._id}`
         // this.setState({ animal: response.data, result: response.status, url: url })
     }
@@ -79,15 +92,23 @@ export default class UserUpdateRequest extends Component {
                     <Navigate to={this.state.url} state={{ animal: this.state.animal }} />
                 )}
                 {this.state.animal && (
+<<<<<<< HEAD
                     <section className="position-relative py-4 py-xl-5">
                         <div className="container position-relative">
                             <div className="row">
                                 <div className="col">
+=======
+                    <section class="position-relative py-4 py-xl-5">
+                        <div class="container position-relative">
+                            <div class="row">
+                                <div class="col">
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                     <Map
                                         mapCenter={this.state.animal.location}
                                         setStateMapCenter={this.setStateMapCenter}
                                     />
                                 </div>
+<<<<<<< HEAD
                                 <div className="col-md-6 col-xl-4">
                                     <div>
                                         <form className="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
@@ -102,24 +123,53 @@ export default class UserUpdateRequest extends Component {
                                             />
                                             <div className="mb-3">
                                                 <label className="form-label" htmlFor="title">
+=======
+                                <div class="col-md-6 col-xl-4">
+                                    <div>
+                                        <form class="p-3 p-xl-4" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+                                            <h4>Manage Request</h4>
+                                            <img
+                                                alt='animal-card-image'
+                                                class="card-img-top w-100 d-block fit-cover"
+                                                style={{ height: 200 + "px" }}
+                                                src={
+                                                    this.state.animal.image ? `this.state.animal.image` : "/images/image-not-found.png"
+                                                }
+                                            />
+                                            <div class="mb-3">
+                                                <label class="form-label" for="title">
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     Title
                                                 </label>
                                                 <input
                                                     id="title"
+<<<<<<< HEAD
                                                     className="form-control"
+=======
+                                                    class="form-control"
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     type="text"
                                                     name="title"
                                                     value={this.state.animal.title}
                                                     onChange={this.handleChange}
                                                 />
                                             </div>
+<<<<<<< HEAD
                                             <div className="mb-3">
                                                 <label className="form-label" htmlFor="description">
+=======
+                                            <div class="mb-3">
+                                                <label class="form-label" for="description">
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     Description
                                                 </label>
                                                 <textarea
                                                     id="email"
+<<<<<<< HEAD
                                                     className="form-control"
+=======
+                                                    class="form-control"
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     type="text"
                                                     name="description"
                                                     value={this.state.animal.description}
@@ -127,14 +177,23 @@ export default class UserUpdateRequest extends Component {
                                                     rows="6"
                                                 />
                                             </div>
+<<<<<<< HEAD
                                             <div className="mb-3">
                                                 <label className="form-label" htmlFor="description">
+=======
+                                            <div class="mb-3">
+                                                <label class="form-label" for="description">
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     kind
                                                 </label>
                                                 <select
                                                     name="kind"
                                                     id="kind"
+<<<<<<< HEAD
                                                     className="form-control"
+=======
+                                                    class="form-control"
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                     onChange={this.handleChange}
                                                     value={this.state.animal.type}
                                                 >
@@ -146,11 +205,21 @@ export default class UserUpdateRequest extends Component {
                                                 </select>
                                             </div>
 
+<<<<<<< HEAD
                                             <div className="mb-3">
                                                 <button
                                                     className="btn btn-primary"
                                                 >
                                                     Submit
+=======
+                                            <div class="mb-3">
+                                                <button
+                                                    class="btn btn-primary"
+                                                >
+                                                    {/* <Link to="/user/showrequest" className="btn btn-primary btn-lg btn-block"> */}
+                                                    Submit
+                                                    {/* </Link> */}
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                                                 </button>
                                             </div>
                                         </form>

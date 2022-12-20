@@ -35,6 +35,16 @@ export default function Map(props) {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+<<<<<<< HEAD
+=======
+                {/* <div>
+          <img
+            className="icon-center"
+            src="https://png.monster/wp-content/uploads/2021/06/png.monster-10-252x370.png"
+            alt=""
+          />
+        </div> */}
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
         {props.setStateMapCenter && <MapCenter setStateMapCenter={props.setStateMapCenter}/>}
         <ChangeView center={props.mapCenter}/> 
         {props.animals && props.animals.map(animal => <MapMarker position={animal.location} />)}

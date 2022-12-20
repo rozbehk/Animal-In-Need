@@ -25,6 +25,7 @@ componentDidMount(){
 
 render(){
   return (
+<<<<<<< HEAD
     <section className="position-relative py-4 py-xl-5">
       {this.state.animal &&
       <div className="container position-relative">
@@ -41,6 +42,24 @@ render(){
               <br />
               <h4></h4>
               <h4>Description: {this.state.animal.description}</h4>
+=======
+    <section class="position-relative py-4 py-xl-5">
+      {this.state.animal &&
+      <div class="container position-relative">
+        <div class="row">
+          <div class="col mb-3">
+            <Map mapCenter={this.state.animal.location} />
+          </div>
+          <div class="col-md-6 col-xl-4">
+            <div>
+              <img class='w-100' src={
+                this.state.animal.image ? `${this.state.animal.image}` : "/images/image-not-found.png"
+              } />
+              <h3 >{this.state.animal.description}</h3>
+              <br />
+              <h4></h4>
+              <h4>Description:{this.state.animal.description}</h4>
+>>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
               <br />
               <h4>Kind: {this.state.animal.kind}</h4>
               <br />
