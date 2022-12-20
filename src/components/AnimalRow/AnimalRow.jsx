@@ -16,9 +16,6 @@ export default function AnimalRow(props) {
     }
   }
 
-  function handleUpdate(){
-
-  }
 
   return (
     <div class="container mb-2">
