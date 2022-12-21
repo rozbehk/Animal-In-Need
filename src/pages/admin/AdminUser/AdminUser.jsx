@@ -3,7 +3,7 @@ import AdminUserRow from "../../../components/AdminUserRow/AdminUserRow";
 
 export default class AdminUsers extends Component {
   state = {
-    users: [],
+    users: null,
   };
   getAllUsers = () => {
     fetch("/api/users/getall")
@@ -16,6 +16,7 @@ export default class AdminUsers extends Component {
   render() {
     return (
       <div>
+        {this.state.users && (
         <section className="py-4 py-xl-5">
           {!this.state.users && <div>No User Found</div>}
           {this.state.users && 
@@ -23,6 +24,7 @@ export default class AdminUsers extends Component {
               !user.admin && <AdminUserRow user={user} />
             ))}
         </section>
+        )}
       </div>
     );
   }

@@ -19,7 +19,7 @@ async function getAll(req, res) {
 }
 
 async function getOne(req, res) {
-  console.log(req.params.id)
+
   let animal = await Animal.findById(req.params.id).populate({ path: 'userId' })
   res.json(animal);
 }
@@ -60,7 +60,7 @@ async function create(req, res) {
 async function deleteOne(req, res) {
   try {
     let animal = await Animal.findByIdAndDelete(req.params.animalId)
-    fs.unlinkSync(`./public/${animal.image}`)
+    fs.unlinkSync(`public${animal.image}`)
     let user = await User.findById(animal.userId)
     user.requests.remove(req.params.animalId)
     user.save()
@@ -75,7 +75,6 @@ async function deleteOne(req, res) {
 async function update(req, res) {
   try {
   let animal = await Animal.findById(req.body.id)
-  console.log(animal)
   animal.title = req.body.title
   animal.location = { lat: req.body.lat, lng: req.body.lng }
   animal.kind = req.body.kind

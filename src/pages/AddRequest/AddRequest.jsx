@@ -103,57 +103,10 @@ export default class AddRequest extends Component {
               />
             </div>
 
-            {/* <Marker position={[mapCenter.lat, mapCenter.lng]} /> */}
+         
           </MapContainer>
         </div>
-        {/* <div> */}
-        {/* <div>
-            <div>
-              <div>
-                <label forhtml="title">title:</label>
-                <input
-                  type="text"
-                  name="title"
-                  onChange={this.handleChange}
-                  value={this.state.title}
-                />
-              </div>
-              <div>
-                <label forhtml="kind">kind:</label>
-                <input
-                  type="text"
-                  name="kind"
-                  onChange={this.handleChange}
-                  value={this.state.kind}
-                />
-              </div>
-              <div>
-                <label forhtml="description">description:</label>
-                <input
-                  type="text"
-                  name="description"
-                  onChange={this.handleChange}
-                  value={this.state.description}
-                />
-              </div>
 
-              <div>
-                <label forhtml="image">image:</label>
-                <input
-                  type="text"
-                  name="image"
-                  onChange={this.handleChange}
-                  value={this.state.image}
-                />
-              </div>
-              <div className="custom-file">
-                <input type="file" aria-describedby="inputGroupFileAddon01" />
-              </div>
-              <br />
-              <button onClick={this.handleSubmit}>Submit</button>
-            </div>
-          </div>
-        </div> */}
         <section class="vh-300">
           <div class="container py-5 h-200">
             <div class="row d-flex align-items-center justify-content-center h-100">

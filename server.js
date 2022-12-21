@@ -13,11 +13,7 @@ app.use(express.json())
 
 
 
-<<<<<<< HEAD
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
-=======
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
->>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
 app.use(express.static(path.join(__dirname, 'build')))
 
 app.use('/api/animals', require('./routes/api/animals'));

@@ -51,11 +51,7 @@ export default class LoginForm extends Component {
               <form>
                 <div className="form-outline mb-4">
                   <div className="input">
-<<<<<<< HEAD
                     <label className="form-label" htmlFor="email">
-=======
-                    <label className="form-label" for="email">
->>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                       Email
                     </label>
                     <input
@@ -69,11 +65,7 @@ export default class LoginForm extends Component {
                     />
                   </div>
                   <div className="input">
-<<<<<<< HEAD
                     <label className="form-label" htmlFor="password">
-=======
-                    <label className="form-label" for="password">
->>>>>>> e6324a2dadf3584b0c98f2a9be084a9a2d7f55ff
                       Passwrod
                     </label>
                     <input

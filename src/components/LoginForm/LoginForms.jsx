@@ -67,12 +67,12 @@ export default class LoginForm extends Component {
           </form>
         </div> */}
 
-        <section class="vh-100">
-          <div class="container py-5 h-100">
-            <div class="row d-flex align-items-center justify-content-center h-100">
-              <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <section className="vh-100">
+          <div className="container py-5 h-100">
+            <div className="row d-flex align-items-center justify-content-center h-100">
+              <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                 <form>
-                  <div class="form-outline mb-4">
+                  <div className="form-outline mb-4">
                     <input
                       type="text"
                       name="email"
@@ -80,21 +80,21 @@ export default class LoginForm extends Component {
                       onChange={this.handleChange}
                       required
                       id="form1Example13"
-                      class="form-control form-control-lg"
+                      className="form-control form-control-lg"
                     />
-                    <label class="form-label">Email address</label>
+                    <label className="form-label">Email address</label>
                   </div>
 
-                  <div class="form-outline mb-4">
+                  <div className="form-outline mb-4">
                     <input
                       type="password"
                       name="password"
                       value={this.state.password}
                       onChange={this.handleChange}
                       required
-                      class="form-control form-control-lg"
+                      className="form-control form-control-lg"
                     />
-                    <label class="form-label" for="form1Example23">
+                    <label className="form-label" htmlFor="form1Example23">
                       Password
                     </label>
                   </div>

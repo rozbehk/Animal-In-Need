@@ -18,21 +18,21 @@ export default class AdminRequest extends Component {
   render() {
     return (
       <div>
-        {this.state.animals &&
         <section className="py-4 py-xl-5">
-        {this.state.animals.length? (
+        {this.state.animals && (
+        this.state.animals.length ? (
             this.state.animals.map(animal =>
-              <AnimalRow animal={animal} getAnimals={this.getAnimals} key={animal._id}/>
+              <AnimalRow animal={animal} getAnimals={this.getAnimals}/>
             )
           ) : (
-            <div className="container mb-2 ">
+            <div className="container mb-2">
               <div className="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
-                <h1 className="fw-bold mb-2 animal-card">There is no request</h1>
+                <h1 className="fw-bold mb-2">There is no request</h1>
               </div>
             </div>
-          )}
+          )
+        )}
         </section>
-        }
       </div>
     );
   }
