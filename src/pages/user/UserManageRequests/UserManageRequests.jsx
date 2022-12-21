@@ -24,11 +24,11 @@ export default class UserManageRequests extends Component {
   render() {
     return (
       <div>
-        <section class="py-4 py-xl-5">
+        <section className="py-4 py-xl-5">
           {!this.state.animals && (
-            <div class="container mb-2">
-              <div class="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
-                <h1 class="fw-bold mb-2">You have no request</h1>
+            <div className="container mb-2">
+              <div className="bg-light border rounded border-0 border-light d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
+                <h1 className="fw-bold mb-2">You have no request</h1>
               </div>
             </div>
           )}

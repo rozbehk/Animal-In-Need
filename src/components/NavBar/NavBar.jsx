@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import { isAdmin , isRescuer, isAuthenticate } from "../../services/userServices"
-import "./Navbar.css";
+import "./NavBar.css";
 
 export default class NavBar extends Component {
   state = {

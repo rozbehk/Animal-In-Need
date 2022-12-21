@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Navigate } from "react-router-dom";
 
 
-export default class UserUpdateRequest extends Component {
+export default class AdminUpdateRequest extends Component {
     state = {
         animal: false,
         mapcenter: null,
@@ -62,12 +62,12 @@ export default class UserUpdateRequest extends Component {
         formData.append("lng", this.state.animal.location.lng)
         console.log(formData)
         let response = await axios.put("/api/animals/updaterequest", formData)
-        // let url = `/request/${response.data._id}`
-        // this.setState({ animal: response.data, result: response.status, url: url })
+        let url = `/request/${response.data._id}`
+        this.setState({ animal: response.data, result: response.status, url: url })
     }
 
     componentDidMount() {
-        const id = window.location.pathname.split('/')[3]
+        const id = window.location.pathname.split('/')[4]
         this.getOneAnimal(id)
     }
 

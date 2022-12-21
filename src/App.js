@@ -3,16 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import { login , signUp , logOut , getToken , isAdmin , isRescuer, isAuthenticate} from "./services/userServices"
 import "./App.css";
 
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/NavBar/NavBar"
+import AdminUpdateRequest from "./pages/admin/AdminUpdateRequest/AdminUpdateRequest";
 import AddRequestPage from "./pages/user/AddRequestPage/AddRequestPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/user/LoginPage/LoginPage";
 import RegisterPage from "./pages/user/RegisterPage/RegisterPage";
 import ShowRequestPage from "./pages/user/ShowRequestsPage/ShowRequestPage";
-import AdminPanel from "./pages/admin/AdminPanel";
-import AdminAnimalsType from "./pages/admin/AdminAnimalType";
-import AdminUsers from "./pages/admin/AdminUser";
-import AdminRequest from "./pages/admin/AdminRequests";
+import AdminPanel from "./pages/admin/AdminPanel/AdminPanel";
+import AdminAnimalsType from "./pages/admin/AdminAnimalType/AdminAnimalType";
+import AdminUsers from "./pages/admin/AdminUser/AdminUser";
+import AdminRequest from "./pages/admin/AdminRequests/AdminRequests";
 import UserPanel from "./pages/user/UserPanel/UserPanel";
 import UserManageRequests from "./pages/user/UserManageRequests/UserManageRequests"
 import ShowSingleRequest from "./pages/user/ShowSingleRequestPage/ShowSingleRequestPage";
@@ -59,6 +60,7 @@ class App extends Component {
           {isAuthenticate() && isAdmin() && <Route path="/admin/panel/managerequest" element={<AdminRequest />}/>}
           {isAuthenticate() && isAdmin() && <Route path="/admin/panel/manageanimals" element={<AdminAnimalsType />}/>}
           {isAuthenticate() && isAdmin() && <Route path="/admin/panel/edituser/:id" element={<UserUpdate/>}/>}
+          {isAuthenticate() && isAdmin() && <Route path="/admin/panel/updaterequest/:id" element={<AdminUpdateRequest/>}/>}
           {isAuthenticate() && <Route path="/request/:id" element={<ShowSingleRequest />}/>}
           {isAuthenticate() && isRescuer() && <Route path="/user/showrequest" element={<ShowRequestPage />}/> }
           {isAuthenticate() && !isAdmin() && !isRescuer() && <Route path="/user/panel" element={<UserPanel />}/>}

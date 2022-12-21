@@ -1,5 +1,8 @@
 const Animal = require("../models/animal");
 const User = require('../models/user')
+const fs = require('fs');
+
+
 module.exports = {
   getAll,
   getOne,
@@ -16,7 +19,7 @@ async function getAll(req, res) {
 }
 
 async function getOne(req, res) {
-  console.log(req.params.id)
+
   let animal = await Animal.findById(req.params.id).populate({ path: 'userId' })
   res.json(animal);
 }
@@ -31,13 +34,17 @@ async function userGetAll(req, res) {
 }
 
 async function create(req, res) {
+  image = ''
+  if(req.file){
+    image = `/images/upload/${req.file.filename}`
+  }
   try {
     let animal = await Animal.create({
       title: req.body.title,
       location: { lat: req.body.lat, lng: req.body.lng },
       kind: req.body.kind,
       description: req.body.description,
-      image: `/images/upload/${req.file.filename}`,
+      image: image,
       userId: req.body.userId
     });
     let user = await User.findById(req.body.userId)
@@ -53,10 +60,9 @@ async function create(req, res) {
 async function deleteOne(req, res) {
   try {
     let animal = await Animal.findByIdAndDelete(req.params.animalId)
-    console.log(animal)
+    fs.unlinkSync(`public${animal.image}`)
     let user = await User.findById(animal.userId)
     user.requests.remove(req.params.animalId)
-    console.log(user.requests)
     user.save()
     res.status(200).json('deleted')
   } catch (err) {
@@ -69,7 +75,6 @@ async function deleteOne(req, res) {
 async function update(req, res) {
   try {
   let animal = await Animal.findById(req.body.id)
-  console.log(animal)
   animal.title = req.body.title
   animal.location = { lat: req.body.lat, lng: req.body.lng }
   animal.kind = req.body.kind
