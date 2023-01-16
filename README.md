@@ -16,7 +16,7 @@ Animal In Need is a program to save injured animals. Users can record the locati
 * GitHub
 
 
-##User types
+## User types
 
 There is 3 user types, Admin,Rerscuer and normal user 
 
@@ -40,7 +40,7 @@ Admin:
 ![image](https://user-images.githubusercontent.com/109234009/195860994-0b0cff6e-39ca-4cc7-b360-463f57999e73.png)
 
 
-##Admin panel:
+## Admin panel:
 main panel
 ![image](https://user-images.githubusercontent.com/109234009/212709009-685be9c6-f882-4f51-b7bc-bbf1464f5eae.png)
 User Edit panel
@@ -48,10 +48,10 @@ User Edit panel
 Request Edit Panel
 ![image](https://user-images.githubusercontent.com/109234009/212709100-6ccca74e-6cb8-4748-9627-dfde29395ac0.png)
 
-##Rescuer
+## Rescuer
 ![image](https://user-images.githubusercontent.com/109234009/212709483-969058ee-28f5-4841-b586-20ec59b41030.png)
 
-##User
+## User
 ![image](https://user-images.githubusercontent.com/109234009/212709550-4f7dcf60-ec12-4ed2-a8d1-f00bfedea4bb.png)
 
 
